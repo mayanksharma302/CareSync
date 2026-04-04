@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const CALENDAR_DAYS = [
-  { d: 26, prev: true }, { d: 27, prev: true }, { d: 28, prev: true }, { d: 29, prev: true },
-  { d: 1 }, { d: 2, weekend: true }, { d: 3, weekend: true },
-  { d: 4 }, { d: 5 }, { d: 6 }, { d: 7, event: { label: '09:30 - Dental Checkup', color: 'bg-primary text-on-primary' } }, { d: 8 }, { d: 9, weekend: true }, { d: 10, weekend: true },
-  { d: 11 }, { d: 12, event: { label: '14:00 - AI Health Scan', color: 'bg-tertiary text-on-tertiary' } }, { d: 13 }, { d: 14 }, { d: 15 }, { d: 16, weekend: true }, { d: 17, weekend: true },
-];
-
-const TODAY = 12;
+  const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const STATUS_STYLES = {
   Confirmed: 'bg-tertiary-container text-on-tertiary-container',
@@ -28,6 +20,30 @@ export default function AppointmentsPage() {
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [patients, setPatients] = useState([]);
+
+  // Dynamic Calendar Computation
+  const todayDate = new Date();
+  const currentMonthStr = todayDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  const currentYear = todayDate.getFullYear();
+  const currentMonthNum = todayDate.getMonth();
+  const todayDay = todayDate.getDate();
+
+  const daysInMonth = new Date(currentYear, currentMonthNum + 1, 0).getDate();
+  const firstDayOfWeek = new Date(currentYear, currentMonthNum, 1).getDay();
+  const startOffset = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1; // Mon = 0
+  const prevMonthDays = new Date(currentYear, currentMonthNum, 0).getDate();
+
+  const calendarDays = [];
+  for (let i = startOffset - 1; i >= 0; i--) {
+    calendarDays.push({ d: prevMonthDays - i, prev: true });
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    const dDate = new Date(currentYear, currentMonthNum, i);
+    const dayOfWeek = dDate.getDay();
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    const dateStr = `${currentYear}-${String(currentMonthNum + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+    calendarDays.push({ d: i, prev: false, weekend: isWeekend, dateStr });
+  }
 
   useEffect(() => {
     // Fetch doctors
@@ -92,7 +108,7 @@ export default function AppointmentsPage() {
         <div className="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h3 className="font-headline font-bold text-xl text-on-surface">March 2024</h3>
+              <h3 className="font-headline font-bold text-xl text-on-surface">{currentMonthStr}</h3>
               <p className="text-sm text-on-surface-variant">{appointments.length} Appointments scheduled this month</p>
             </div>
             <div className="flex gap-2 bg-surface-container-low p-1 rounded-lg">
@@ -105,16 +121,17 @@ export default function AppointmentsPage() {
             {DAYS.map((d) => (
               <div key={d} className={`bg-surface-container-low py-3 text-xs font-bold tracking-widest uppercase ${d === 'Sat' || d === 'Sun' ? 'text-error/60' : 'text-outline-variant'}`}>{d}</div>
             ))}
-            {CALENDAR_DAYS.map((cell, i) => {
+            {calendarDays.map((cell, i) => {
               // Dynamically inject appointments into the calendar tiles
               const cellAppts = appointments.filter(a => {
                 if (!a.date || cell.prev) return false;
-                const apptDay = parseInt(a.date.split('-')[2], 10);
-                return apptDay === cell.d;
+                return a.date === cell.dateStr;
               });
               const event = cellAppts.length > 0 
                 ? { label: `${cellAppts[0].time} - ${cellAppts[0].type}`, color: 'bg-primary text-on-primary' } 
-                : cell.event; // fallback to dummy events if no dynamic ones on that day
+                : null;
+
+              const isToday = !cell.prev && cell.d === todayDay;
 
               return (
               <div
@@ -122,11 +139,11 @@ export default function AppointmentsPage() {
                 className={`h-20 p-1.5 text-left text-xs font-medium transition-colors relative
                   ${cell.prev ? 'bg-surface-container-lowest opacity-30' : 'bg-surface-container-lowest'}
                   ${cell.weekend && !cell.prev ? 'text-on-surface/40' : ''}
-                  ${cell.d === TODAY ? 'ring-2 ring-inset ring-primary' : ''}
-                  ${cell.event ? 'bg-primary-container/10 cursor-pointer hover:bg-primary-container/20' : ''}
+                  ${isToday ? 'ring-2 ring-inset ring-primary' : ''}
+                  ${event ? 'bg-primary-container/10 cursor-pointer hover:bg-primary-container/20' : ''}
                 `}
               >
-                <span className={cell.d === TODAY ? 'w-5 h-5 bg-primary text-on-primary rounded-full flex items-center justify-center text-[10px] font-bold' : ''}>
+                <span className={isToday ? 'w-5 h-5 bg-primary text-on-primary rounded-full flex items-center justify-center text-[10px] font-bold shadow-sm' : ''}>
                   {cell.d}
                 </span>
                 {event && (
