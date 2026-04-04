@@ -105,7 +105,18 @@ export default function AppointmentsPage() {
             {DAYS.map((d) => (
               <div key={d} className={`bg-surface-container-low py-3 text-xs font-bold tracking-widest uppercase ${d === 'Sat' || d === 'Sun' ? 'text-error/60' : 'text-outline-variant'}`}>{d}</div>
             ))}
-            {CALENDAR_DAYS.map((cell, i) => (
+            {CALENDAR_DAYS.map((cell, i) => {
+              // Dynamically inject appointments into the calendar tiles
+              const cellAppts = appointments.filter(a => {
+                if (!a.date || cell.prev) return false;
+                const apptDay = parseInt(a.date.split('-')[2], 10);
+                return apptDay === cell.d;
+              });
+              const event = cellAppts.length > 0 
+                ? { label: `${cellAppts[0].time} - ${cellAppts[0].type}`, color: 'bg-primary text-on-primary' } 
+                : cell.event; // fallback to dummy events if no dynamic ones on that day
+
+              return (
               <div
                 key={i}
                 className={`h-20 p-1.5 text-left text-xs font-medium transition-colors relative
@@ -118,13 +129,18 @@ export default function AppointmentsPage() {
                 <span className={cell.d === TODAY ? 'w-5 h-5 bg-primary text-on-primary rounded-full flex items-center justify-center text-[10px] font-bold' : ''}>
                   {cell.d}
                 </span>
-                {cell.event && (
-                  <div className={`mt-1 px-1 py-0.5 rounded text-[9px] leading-tight truncate font-bold ${cell.event.color}`}>
-                    {cell.event.label}
+                {event && (
+                  <div className={`mt-1 px-1 py-0.5 rounded text-[9px] leading-tight truncate font-bold ${event.color}`}>
+                    {event.label}
+                  </div>
+                )}
+                {cellAppts.length > 1 && (
+                  <div className="mt-0.5 px-1 py-0.5 rounded text-[9px] font-bold text-center bg-surface-container-high text-on-surface">
+                    +{cellAppts.length - 1} more
                   </div>
                 )}
               </div>
-            ))}
+            )})}
           </div>
         </div>
 
