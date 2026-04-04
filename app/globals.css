@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-inverse-primary: #5095fe;
+  --color-on-tertiary: #ebfcff;
+  --color-surface-tint: #005cba;
+  --color-surface-container-low: #f0f4f7;
+  --color-on-primary-container: #0050a2;
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #cfdce3;
+  --color-primary-fixed: #d7e3ff;
+  --color-on-error-container: #752121;
+  --color-secondary-dim: #405667;
+  --color-outline: #717c82;
+  --color-tertiary-dim: #005c65;
+  --color-primary: #005cba;
+  --color-on-tertiary-container: #005b64;
+  --color-tertiary: #006974;
+  --color-tertiary-container: #99f0fd;
+  --color-primary-container: #d7e3ff;
+  --color-on-secondary-fixed: #2c4252;
+  --color-inverse-surface: #0b0f10;
+  --color-on-background: #2a3439;
+  --color-on-primary-fixed: #003e80;
+  --color-outline-variant: #a9b4b9;
+  --color-on-error: #fff7f6;
+  --color-on-secondary: #f5f9ff;
+  --color-on-tertiary-fixed-variant: #00656f;
+  --color-inverse-on-surface: #9a9d9f;
+  --color-on-tertiary-fixed: #00474e;
+  --color-primary-fixed-dim: #c1d5ff;
+  --color-on-secondary-fixed-variant: #485e6f;
+  --color-secondary-container: #cee5fa;
+  --color-surface-bright: #f7f9fb;
+  --color-on-secondary-container: #3e5465;
+  --color-tertiary-fixed: #99f0fd;
+  --color-on-primary-fixed-variant: #005ab4;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface-variant: #566166;
+  --color-error: #9f403d;
+  --color-on-surface: #2a3439;
+  --color-surface-container: #e8eff3;
+  --color-secondary-fixed: #cee5fa;
+  --color-secondary: #4c6273;
+  --color-background: #f7f9fb;
+  --color-error-dim: #4e0309;
+  --color-surface-container-highest: #d9e4ea;
+  --color-primary-dim: #0051a4;
+  --color-secondary-fixed-dim: #c0d7ec;
+  --color-surface-container-high: #e1e9ee;
+  --color-error-container: #fe8983;
+  --color-tertiary-fixed-dim: #8be2ef;
+  --color-surface-variant: #d9e4ea;
+  --color-on-primary: #f7f7ff;
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.signature-gradient {
+  background: linear-gradient(135deg, #005cba 0%, #0051a4 100%);
+}

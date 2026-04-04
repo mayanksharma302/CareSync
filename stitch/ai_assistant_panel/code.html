@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareSync AI Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5095fe",
+                        "on-tertiary": "#ebfcff",
+                        "surface-tint": "#005cba",
+                        "surface-container-low": "#f0f4f7",
+                        "on-primary-container": "#0050a2",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#cfdce3",
+                        "primary-fixed": "#d7e3ff",
+                        "on-error-container": "#752121",
+                        "secondary-dim": "#405667",
+                        "outline": "#717c82",
+                        "tertiary-dim": "#005c65",
+                        "primary": "#005cba",
+                        "on-tertiary-container": "#005b64",
+                        "tertiary": "#006974",
+                        "tertiary-container": "#99f0fd",
+                        "primary-container": "#d7e3ff",
+                        "on-secondary-fixed": "#2c4252",
+                        "inverse-surface": "#0b0f10",
+                        "on-background": "#2a3439",
+                        "on-primary-fixed": "#003e80",
+                        "outline-variant": "#a9b4b9",
+                        "on-error": "#fff7f6",
+                        "on-secondary": "#f5f9ff",
+                        "on-tertiary-fixed-variant": "#00656f",
+                        "inverse-on-surface": "#9a9d9f",
+                        "on-tertiary-fixed": "#00474e",
+                        "primary-fixed-dim": "#c1d5ff",
+                        "on-secondary-fixed-variant": "#485e6f",
+                        "secondary-container": "#cee5fa",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-container": "#3e5465",
+                        "tertiary-fixed": "#99f0fd",
+                        "on-primary-fixed-variant": "#005ab4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#566166",
+                        "error": "#9f403d",
+                        "on-surface": "#2a3439",
+                        "surface-container": "#e8eff3",
+                        "secondary-fixed": "#cee5fa",
+                        "secondary": "#4c6273",
+                        "background": "#f7f9fb",
+                        "error-dim": "#4e0309",
+                        "surface-container-highest": "#d9e4ea",
+                        "primary-dim": "#0051a4",
+                        "secondary-fixed-dim": "#c0d7ec",
+                        "surface-container-high": "#e1e9ee",
+                        "error-container": "#fe8983",
+                        "tertiary-fixed-dim": "#8be2ef",
+                        "surface-variant": "#d9e4ea",
+                        "on-primary": "#f7f7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #2a3439;
+        }
+        .headline-sm {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="hidden md:flex flex-col h-full p-4 border-r border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 h-screen w-64 docked left-0">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<div>
+<h1 class="font-['Manrope'] font-extrabold text-blue-700 dark:text-blue-500 text-lg leading-tight">CareSync</h1>
+<p class="text-[10px] text-slate-500 font-medium tracking-widest uppercase">Clinical Sanctuary</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900/50 transition-all duration-300 hover:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900/50 transition-all duration-300 hover:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide">Appointments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900/50 transition-all duration-300 hover:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide">Medical Records</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900/50 transition-all duration-300 hover:translate-x-1 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="medication">medication</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide">Prescriptions</span>
+</a>
+<!-- Active State: AI Assistant Panel Page -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-semibold transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-['Inter'] font-medium text-sm tracking-wide">AI Assistant</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 rounded-xl font-bold text-sm shadow-[0px_10px_30px_rgba(42,52,57,0.04)] hover:opacity-90 transition-opacity mb-6">
+                Book Appointment
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-sm font-medium hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-sm font-medium hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col relative bg-surface overflow-hidden">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl docked full-width top-0 sticky z-30 shadow-[0px_10px_30px_rgba(42,52,57,0.04)]">
+<div class="flex items-center gap-8">
+<h2 class="font-['Manrope'] tracking-tight headline-sm text-slate-900 dark:text-slate-50 font-bold">AI Workspace</h2>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-300" href="#">Patients</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-300" href="#">Schedule</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-500 transition-colors duration-300" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-surface-tint w-64 transition-all" placeholder="Search records..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="professional portrait of a confident male doctor in a white lab coat with a warm smile and blurred clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Tsc2ZSc5H4UYJreNhvYsLniAfxX7mViyQChNZwrN9jnqQljBqkFLrOymld_nUl4UnoB33Xx3jFh3KF_NJnjrebk6BruYpCeeX1FbI81a51nc8zr1sZFkH6xb45NkSgHlMrLSlUIESQPPIVs6t_gTEbRucHw_mOnWisqUGJoUBdz97BcZ8-DI6hxLTH5kcWAbZKAKTJoswQHM3IX626C6TLW8_xEFP-XTs4kh1X3RaQzJemmrOlyNXkrLwY1MBHdOeqxORUYDTZaT"/>
+</div>
+</div>
+</header>
+<!-- Page Content: Bento Grid Layout -->
+<div class="flex-1 p-8 grid grid-cols-12 gap-6 overflow-y-auto pb-24 md:pb-8">
+<!-- Left Column: Patient Context / History -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Patient Info Card -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_10px_30px_rgba(42,52,57,0.04)] border-l-[6px] border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="label-sm text-[10px] font-bold tracking-widest text-primary uppercase">Active Patient</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold">STABLE</span>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface mb-1">Eleanor Fitzgerald</h3>
+<p class="text-sm text-on-surface-variant font-medium mb-6">Patient ID: #CS-99281</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="text-[10px] font-bold text-slate-500 tracking-wider uppercase mb-1">Blood Pressure</p>
+<p class="text-lg font-bold text-on-surface">120/80 <span class="text-xs font-normal text-slate-500">mmHg</span></p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg">
+<p class="text-[10px] font-bold text-slate-500 tracking-wider uppercase mb-1">Heart Rate</p>
+<p class="text-lg font-bold text-on-surface">72 <span class="text-xs font-normal text-slate-500">bpm</span></p>
+</div>
+</div>
+</section>
+<!-- Medical History Brief -->
+<section class="bg-surface-container-low rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline font-bold text-on-surface">Contextual Data</h4>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="mt-1 p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="description">description</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Last Lab Result</p>
+<p class="text-[11px] text-on-surface-variant">Metabolic panel - Normal ranges observed.</p>
+<p class="text-[10px] text-primary mt-1 font-semibold">2 days ago</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="mt-1 p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="history">history</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Past Consultations</p>
+<p class="text-[11px] text-on-surface-variant">Follow-up for chronic hypertension management.</p>
+<p class="text-[10px] text-primary mt-1 font-semibold">1 month ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating/Side Panel Chat Button (Mobile) -->
+<div class="fixed md:hidden bottom-20 right-6 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</button>
+</div>
+</div>
+<!-- Right Column: AI Assistant Panel (The Centerpiece) -->
+<div class="col-span-12 lg:col-span-8 flex flex-col h-[750px] bg-surface-container-lowest rounded-3xl shadow-[0px_20px_50px_rgba(42,52,57,0.06)] border border-slate-100 overflow-hidden relative">
+<!-- Chat Header -->
+<div class="px-8 py-5 bg-white/80 backdrop-blur-md border-b border-slate-50 flex items-center justify-between z-10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dim flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined text-2xl" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h3 class="font-headline font-extrabold text-slate-900 tracking-tight">CareSync AI Assistant</h3>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<p class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">Clinical Intelligence Active</p>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-xl text-xs font-bold hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+                        Generate Summary
+                    </button>
+</div>
+<!-- Chat Response Area -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 bg-[radial-gradient(circle_at_top_right,#f0f4f7_0%,transparent_40%)]">
+<!-- AI Greeting -->
+<div class="flex items-start gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed text-on-surface">
+<p>Good morning, Dr. Aris. I've reviewed Eleanor Fitzgerald's latest metabolic panel. Everything looks within standard parameters, though her sodium levels are at the upper boundary. Would you like me to cross-reference this with her current medication list?</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex items-start gap-4 max-w-[85%] ml-auto flex-row-reverse">
+<div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center text-slate-600 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div class="bg-primary text-on-primary p-4 rounded-2xl rounded-tr-none text-sm shadow-md">
+<p>Yes, please. Also, check for any drug-drug interactions with her new prescription of Lisinopril.</p>
+</div>
+</div>
+<!-- AI Response with Data visualization style -->
+<div class="flex items-start gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="space-y-4 w-full">
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed text-on-surface">
+<p>Analysis complete. There are no major contraindications between Lisinopril and her current vitamins. However, I noticed a moderate risk of hyperkalemia if combined with her potassium-sparing diuretic. </p>
+</div>
+<!-- AI Card/Insight -->
+<div class="bg-white border-2 border-primary/10 rounded-xl p-4 shadow-sm flex items-center gap-4">
+<div class="p-3 bg-error-container/20 rounded-full">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<h4 class="text-xs font-bold text-on-surface">Interaction Alert (Moderate)</h4>
+<p class="text-[11px] text-on-surface-variant">Lisinopril + Spironolactone interaction may increase serum potassium.</p>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Adjust Plan</button>
+</div>
+</div>
+</div>
+<!-- User Question -->
+<div class="flex items-start gap-4 max-w-[85%] ml-auto flex-row-reverse">
+<div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center text-slate-600 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div class="bg-primary text-on-primary p-4 rounded-2xl rounded-tr-none text-sm shadow-md">
+<p>Summarize the last three consultations for her patient file.</p>
+</div>
+</div>
+<!-- AI Typing Indicator -->
+<div class="flex items-start gap-4 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-primary mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-2xl rounded-tl-none flex gap-1">
+<div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></div>
+<div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+<div class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+</div>
+</div>
+</div>
+<!-- Input Box -->
+<div class="p-6 bg-white border-t border-slate-50">
+<div class="relative flex items-center gap-3">
+<div class="flex-1 relative">
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 pl-5 pr-14 text-sm focus:ring-2 focus:ring-surface-tint shadow-inner transition-all" placeholder="Ask CareSync AI..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+</div>
+</div>
+<button class="bg-primary text-on-primary h-14 w-14 rounded-2xl shadow-[0px_10px_20px_rgba(0,92,186,0.2)] flex items-center justify-center hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<div class="mt-4 flex items-center justify-center gap-4">
+<span class="text-[10px] text-slate-400 font-medium">Suggested:</span>
+<button class="text-[10px] font-bold text-slate-500 hover:text-primary bg-slate-50 px-3 py-1 rounded-full border border-slate-100 transition-colors uppercase tracking-wider">Review vitals</button>
+<button class="text-[10px] font-bold text-slate-500 hover:text-primary bg-slate-50 px-3 py-1 rounded-full border border-slate-100 transition-colors uppercase tracking-wider">Check Allergies</button>
+<button class="text-[10px] font-bold text-slate-500 hover:text-primary bg-slate-50 px-3 py-1 rounded-full border border-slate-100 transition-colors uppercase tracking-wider">Lab Trends</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Authority Source: JSON - Visible on mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-3xl shadow-[0px_-10px_30px_rgba(42,52,57,0.05)] border-t border-slate-100 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-6 py-2 scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Health AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+</nav>
+</main>
+<!-- Visual Background Element (Subtle Gradient Bloom) -->
+<div class="fixed top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-10%] left-[-10%] w-[30%] h-[30%] bg-tertiary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+</body></html>

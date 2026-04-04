@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareSync | Clinical Sanctuary</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#5095fe",
+                      "on-tertiary": "#ebfcff",
+                      "surface-tint": "#005cba",
+                      "surface-container-low": "#f0f4f7",
+                      "on-primary-container": "#0050a2",
+                      "surface": "#f7f9fb",
+                      "surface-dim": "#cfdce3",
+                      "primary-fixed": "#d7e3ff",
+                      "on-error-container": "#752121",
+                      "secondary-dim": "#405667",
+                      "outline": "#717c82",
+                      "tertiary-dim": "#005c65",
+                      "primary": "#005cba",
+                      "on-tertiary-container": "#005b64",
+                      "tertiary": "#006974",
+                      "tertiary-container": "#99f0fd",
+                      "primary-container": "#d7e3ff",
+                      "on-secondary-fixed": "#2c4252",
+                      "inverse-surface": "#0b0f10",
+                      "on-background": "#2a3439",
+                      "on-primary-fixed": "#003e80",
+                      "outline-variant": "#a9b4b9",
+                      "on-error": "#fff7f6",
+                      "on-secondary": "#f5f9ff",
+                      "on-tertiary-fixed-variant": "#00656f",
+                      "inverse-on-surface": "#9a9d9f",
+                      "on-tertiary-fixed": "#00474e",
+                      "primary-fixed-dim": "#c1d5ff",
+                      "on-secondary-fixed-variant": "#485e6f",
+                      "secondary-container": "#cee5fa",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-container": "#3e5465",
+                      "tertiary-fixed": "#99f0fd",
+                      "on-primary-fixed-variant": "#005ab4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#566166",
+                      "error": "#9f403d",
+                      "on-surface": "#2a3439",
+                      "surface-container": "#e8eff3",
+                      "secondary-fixed": "#cee5fa",
+                      "secondary": "#4c6273",
+                      "background": "#f7f9fb",
+                      "error-dim": "#4e0309",
+                      "surface-container-highest": "#d9e4ea",
+                      "primary-dim": "#0051a4",
+                      "secondary-fixed-dim": "#c0d7ec",
+                      "surface-container-high": "#e1e9ee",
+                      "error-container": "#fe8983",
+                      "tertiary-fixed-dim": "#8be2ef",
+                      "surface-variant": "#d9e4ea",
+                      "on-primary": "#f7f7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.75rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #005cba 0%, #0051a4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- Auth Wrapper with Role Selection View (Primary View) -->
+<main class="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-12">
+<!-- Abstract Background Decoration -->
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover opacity-10 grayscale" data-alt="abstract blurred hospital interior with soft blue and white lighting and professional clinical atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Bw1KPjnQdX7q1rDnM-DDgxjTz6CEoPQfLDOvjQsHzRLTMaEkUhl-5VfdvKmWt43lOWOUTi7Vak4Zg-qBfmObDOgQa7pLlgIk15XFFmWHk61McSU5aOiFUp7Y6U1otsk8Ec_iAb49SOYPa-Uh5Jffs3nWO02UT7eQFSJQ9MO8FZixV-aQerEaBW54PS57szO5TobV_RvFn3RL6OHA22GJnsJooT8HKsbwqgQUoZ1-xmi0Fkl1nkQ53LqVpY2gLKXpbGsdkZ-kIBHc"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface via-surface/90 to-transparent"></div>
+</div>
+<div class="w-full max-w-4xl relative z-10">
+<!-- Branding Header -->
+<div class="flex flex-col items-center mb-12">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<h1 class="font-headline text-4xl font-extrabold tracking-tighter text-on-surface">CareSync</h1>
+<p class="text-on-surface-variant font-medium tracking-wide">Clinical Sanctuary</p>
+</div>
+<!-- 3. Role Selection Layout (The "Bento" Style Entry) -->
+<div class="grid md:grid-cols-2 gap-6 mb-16">
+<!-- Patient Card -->
+<button class="group flex flex-col items-start p-10 bg-surface-container-lowest rounded-xl text-left transition-all duration-300 hover:translate-y-[-4px] shadow-[0px_10px_30px_rgba(42,52,57,0.04)] ring-1 ring-surface-container-high hover:ring-primary/20">
+<div class="w-14 h-14 bg-secondary-container rounded-full flex items-center justify-center mb-8 transition-transform duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl" data-icon="person_search">person_search</span>
+</div>
+<h2 class="font-headline text-2xl font-bold mb-3">I am a Patient</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8">Access your medical records, schedule appointments, and connect with your care team in a secure environment.</p>
+<div class="flex items-center text-primary font-bold text-sm tracking-tight uppercase">
+                        Enter Patient Portal
+                        <span class="material-symbols-outlined ml-2 text-lg" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Doctor Card -->
+<button class="group flex flex-col items-start p-10 bg-surface-container-lowest rounded-xl text-left transition-all duration-300 hover:translate-y-[-4px] shadow-[0px_10px_30px_rgba(42,52,57,0.04)] ring-1 ring-surface-container-high hover:ring-primary/20">
+<div class="w-14 h-14 bg-tertiary-container rounded-full flex items-center justify-center mb-8 transition-transform duration-300 group-hover:scale-110">
+<span class="material-symbols-outlined text-on-tertiary-container text-3xl" data-icon="medical_services">medical_services</span>
+</div>
+<h2 class="font-headline text-2xl font-bold mb-3">I am a Provider</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8">Streamline your practice with AI-assisted diagnostics, patient management, and collaborative clinical tools.</p>
+<div class="flex items-center text-primary font-bold text-sm tracking-tight uppercase">
+                        Access Clinical Suite
+                        <span class="material-symbols-outlined ml-2 text-lg" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+</main>
+<!-- 1. Login Page Mockup (Stacked for demonstration of UI) -->
+<section class="min-h-screen bg-surface-container-low flex items-center justify-center py-20 px-6">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0px_20px_50px_rgba(42,52,57,0.08)] overflow-hidden">
+<div class="p-8 md:p-12">
+<div class="mb-10">
+<h2 class="font-headline text-3xl font-bold text-on-surface tracking-tight mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant">Sign in to your clinical dashboard</p>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Email Address</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 text-on-surface placeholder:text-outline-variant border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="dr.smith@caresync.com" type="email"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Password</label>
+<a class="text-primary text-xs font-semibold hover:underline" href="#">Forgot Password?</a>
+</div>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 text-on-surface placeholder:text-outline-variant border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex items-center space-x-3 py-2">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="text-sm text-on-surface-variant font-medium" for="remember">Remember this device</label>
+</div>
+<button class="w-full signature-gradient text-on-primary font-bold py-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]" type="button">
+                        Login to Dashboard
+                    </button>
+</form>
+<div class="mt-10 pt-8 border-t border-surface-container-high text-center">
+<p class="text-on-surface-variant text-sm">
+                        New to CareSync? 
+                        <a class="text-primary font-bold hover:underline ml-1" href="#">Create an account</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Register Page Mockup (Stacked for demonstration of UI) -->
+<section class="min-h-screen bg-surface flex items-center justify-center py-20 px-6">
+<div class="w-full max-w-5xl flex bg-surface-container-lowest rounded-xl shadow-[0px_40px_80px_rgba(42,52,57,0.1)] overflow-hidden">
+<!-- Left Side: Visual Content -->
+<div class="hidden lg:block w-1/2 relative">
+<img alt="" class="absolute inset-0 w-full h-full object-cover" data-alt="modern minimalist medical clinic reception area with clean white surfaces, soft wood accents, and abundant natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5KG9JLzqY7kFoLR5RnEcdyAyeXa-l5us9nAMBFxfy12d48-YJ4z8aGYuxldi2edivhPei16G74oDGaoWvXyHwcozDweB_DyX7IuQskMmTKWtcGKAw8rSInwEDfgJoZbluXUAZbozGeH9_OucyingLXhMsY1QZHc1m5cCAguHdN89ZdIg4iafftosr3ggdwUk6HRDlqVVoItqo6fLsLl9GCYkbkGRumhSp25fErCqvvy5wYe2BMesc2xKNwJnQDFC6WppVu-43IinE"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[2px]"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<div class="p-8 bg-surface-container-lowest/80 backdrop-blur-xl rounded-xl">
+<p class="text-primary font-headline text-lg font-bold mb-2">Trusted by 10,000+ Providers</p>
+<p class="text-on-surface text-sm leading-relaxed">Join the most advanced ecosystem for patient care and clinical management.</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Register Form -->
+<div class="w-full lg:w-1/2 p-8 md:p-16">
+<div class="mb-10">
+<h2 class="font-headline text-3xl font-bold text-on-surface tracking-tight mb-2">Create Account</h2>
+<p class="text-on-surface-variant">Start your journey with CareSync today</p>
+</div>
+<form class="space-y-5">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">First Name</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="John" type="text"/>
+</div>
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Last Name</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Professional Email</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="j.doe@medicalcenter.org" type="email"/>
+</div>
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Password</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="At least 8 characters" type="password"/>
+</div>
+<div>
+<label class="block font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Confirm Password</label>
+<input class="w-full bg-surface-container-low rounded-lg px-4 py-3 border-0 focus:ring-2 focus:ring-primary transition-all" placeholder="Re-enter password" type="password"/>
+</div>
+<div class="text-xs text-on-surface-variant leading-relaxed py-2">
+                        By clicking register, you agree to our <a class="text-primary underline" href="#">Terms of Service</a> and <a class="text-primary underline" href="#">Privacy Policy</a>.
+                    </div>
+<button class="w-full signature-gradient text-on-primary font-bold py-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all" type="button">
+                        Complete Registration
+                    </button>
+</form>
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant text-sm">
+                        Already have an account? 
+                        <a class="text-primary font-bold hover:underline ml-1" href="#">Sign in here</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Decoration (Soft clinical accent) -->
+<footer class="py-12 bg-surface flex flex-col items-center">
+<div class="flex items-center space-x-6 text-outline-variant mb-6">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="material-symbols-outlined" data-icon="health_and_safety">health_and_safety</span>
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-outline-variant">© 2024 CareSync Health Systems. All Rights Reserved.</p>
+</footer>
+</body></html>
